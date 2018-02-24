@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import Routes from './routes';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-	      <h1>Energy Management Dashboard - Client</h1>
-      </div>
-    );
-  }
+	render () {
+		return (
+			<div>
+				<Router>
+					<Routes/>
+				</Router>
+			</div>
+		);
+	}
 }
 
 export default App;
