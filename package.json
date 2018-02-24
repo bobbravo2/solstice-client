@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "author": "Robert Gregor <robertgregor@icloud.com>",
-  "license": "Copyright Robert Gregor",
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
