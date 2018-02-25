@@ -15,6 +15,10 @@
 `yarn build`
 
 
+### Future Features
+
+- [ ]  Add `Aria` accessibility to interactive [charts](https://ecomfe.github.io/echarts-doc/public/en/option.html#aria.description). Test with VoiceOver.
+
 ## Create React App
 
 - [Updating to New Releases](#updating-to-new-releases)

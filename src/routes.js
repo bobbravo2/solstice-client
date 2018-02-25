@@ -7,6 +7,7 @@ import Footer from './static/footer';
 import AboutUs from './static/about-us'
 import Home from './static/home';
 import LogIn from './components/login';
+import Admin from './components/admin';
 
 const Routes = () => (
 	<Container>
@@ -16,7 +17,9 @@ const Routes = () => (
 			<Route exact path={"/log-in/"} component={LogIn}/>
 			<Route exact path={"/about-us/"} component={AboutUs}/>
 
-			<Route path={"/user/:user_id?"} component={User}/>
+			<Route path={"/user/:user_id"} component={User}/>
+			<Route path={"/admin/:user_id?"} component={Admin}/>
+
 		</Switch>
 		<Footer/>
 	</Container>

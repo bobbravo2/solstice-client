@@ -18,3 +18,17 @@
 	margin: 100px auto 0;
 	display: block;
 }
+.edit {
+	padding: 3px;
+	border: 1px solid #dddddd;
+	display: inline-block;
+	margin: 3px;
+	border-radius: 2px;
+	transition: background-color .2s ease;
+}
+.edit:hover {
+	background-color: #dddddd;
+}
+.edit:active {
+	background-color: lightslategray;
+}

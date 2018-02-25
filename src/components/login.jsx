@@ -2,15 +2,6 @@ import React from 'react';
 import {Button, Container, Form, Grid, Icon, Message} from 'semantic-ui-react';
 
 class User extends React.Component {
-	constructor (props) {
-		super(props);
-		this.state = {
-			loading: true,
-			users:   [],
-			user:    {}
-		};
-	}
-
 	render () {
 		return (
 			<Grid columns={2} padded>
