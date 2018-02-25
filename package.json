@@ -4,6 +4,8 @@
   "private": true,
   "author": "Robert Gregor <robertgregor@icloud.com>",
   "dependencies": {
+    "echarts": "^4.0.2",
+    "echarts-for-react": "^2.0.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",

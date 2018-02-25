@@ -1,10 +1,20 @@
 /*/!*[@id="root"]/div/div/header/div/div/div/div[1]/a*/
-#root .landing-header-container .menu .link {
+#root .landing-header .menu .link {
 	/*Reset the ui padding to enable larger touch targets for UX */
 	padding: 0;
 }
-#root .landing-header-container .menu a {
-	padding: 1.4rem 1.8rem;
+#root .landing-header .menu a {
+	padding: 2.2rem 1.8rem;
 	width: 100%;
 	display: inline-block;
+}
+
+#root .ui.menu {
+	box-shadow: none;
+	border: none;
+}
+
+.SkeletonLoader .icon {
+	margin: 100px auto 0;
+	display: block;
 }
