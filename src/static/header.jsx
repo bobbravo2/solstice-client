@@ -1,25 +1,25 @@
 import React from 'react';
-import {Image, Container} from 'semantic-ui-react';
+import {Container, Image, Menu} from 'semantic-ui-react';
 import Logo from '../images/logo.png';
 import {Link} from 'react-router-dom';
 
 
 class Header extends React.Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 		this.state = {
-			'hidden': false,
+			'hidden':        false,
 			'lastScrollTop': 0
 		};
 		this.handleScroll = this.handleScroll.bind(this);
 	}
 
-	handleScroll(event) {
+	handleScroll (event) {
 		//TODO look into encapsulating ScrollTop for react-native
 		const scrollTop = event.target.documentElement.scrollTop;
 		//Log it
 		//Check current state against our lastScrollTop value
-		if (scrollTop <= 30) {
+		if ( scrollTop <= 30 ) {
 			//If scrollTop > lastScrollTop we're moving up the page, show the main menu
 			// console.log('Going UP?');
 			this.setState({'hidden': false});
@@ -36,8 +36,8 @@ class Header extends React.Component {
 		this.setState({'lastScrollTop': scrollTop});
 	}
 
-	componentDidMount() {
-		if (typeof window === 'object') {
+	componentDidMount () {
+		if ( typeof window === 'object' ) {
 			//Only bind for react-dom implementations
 			//TODO implement scroll detection for React-Native
 			window.addEventListener(
@@ -47,8 +47,8 @@ class Header extends React.Component {
 		}
 	}
 
-	componentWillUnmount() {
-		if (typeof window === 'object') {
+	componentWillUnmount () {
+		if ( typeof window === 'object' ) {
 			window.removeEventListener(
 				'scroll',
 				this.handleScroll
@@ -56,7 +56,7 @@ class Header extends React.Component {
 		}
 	}
 
-	render() {
+	render () {
 		return (
 			<header className="landing-header" style={{
 				boxShadow: !this.state.hidden ? 'none' : '0px -1px 5px 0px' +
@@ -69,9 +69,23 @@ class Header extends React.Component {
 								<Image src={Logo} fluid={true} size={'small'}/>
 							</div>
 						</Link>
-						<div className="links">
-							<Link to={"/log-in"}>Log In</Link>
-						</div>
+
+						<Menu>
+							<Menu.Item
+								name='log-in'
+								link={true}
+							>
+								<Link to={"/log-in"}>Log In</Link>
+							</Menu.Item>
+
+							<Menu.Item
+								name='reviews'
+								link={true}
+							>
+								<Link to={"/about-us"}>About Us</Link>
+							</Menu.Item>
+
+						</Menu>
 					</div>
 				</Container>
 			</header>

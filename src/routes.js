@@ -1,11 +1,14 @@
 import React from 'react';
 import User from "./components/user";
 import {Route, Switch} from 'react-router-dom';
+import {Container} from 'semantic-ui-react';
 import Header from './static/header';
 import Footer from './static/footer';
 import LogIn from './components/login';
+
 const Routes = () => (
-	<div className="app">
+	<Container>
+
 		<Header/>
 		<Switch>
 			<Route exact path={"/"} render={() =>
@@ -15,7 +18,7 @@ const Routes = () => (
 			<Route path={"/user/:user_id?"} component={User}/>
 		</Switch>
 		<Footer/>
-	</div>
+	</Container>
 );
 
 export default Routes;

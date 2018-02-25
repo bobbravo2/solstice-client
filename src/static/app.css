@@ -1,0 +1,10 @@
+/*/!*[@id="root"]/div/div/header/div/div/div/div[1]/a*/
+#root .landing-header-container .menu .link {
+	/*Reset the ui padding to enable larger touch targets for UX */
+	padding: 0;
+}
+#root .landing-header-container .menu a {
+	padding: 1.4rem 1.8rem;
+	width: 100%;
+	display: inline-block;
+}
