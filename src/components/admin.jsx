@@ -4,11 +4,77 @@ import AdminListTable from './AdminListTable';
 import AdminEditTable from './AdminEditTable';
 
 class Admin extends React.Component {
+	constructor (props) {
+		super(props);
+		this.state = {
+			loading: true,
+			error:   false,
+			success: false,
+			saving:  false,
+			users:   [],
+			user:    {}
+		};
+		this.saveEdit = this.saveEdit.bind(this);
+		this.fetchUserData = this.fetchUserData.bind(this);
+	};
+
 	saveEdit = (data) => {
 		console.log(
 			'Saving data in Admin',
 			data
 		);
+		this.setState({saving: true});
+		fetch(
+			'',
+			{
+				body:        JSON.stringify(data),
+				cache:       'no-cache',
+				credentials: 'include',
+				headers:     {
+					'content-type': 'application/json'
+				},
+				method:      'POST',
+				mode:        'cors',
+				redirect:    'error'
+			}
+		)
+			.then(
+				response => response.json())
+			.then(
+				(response) => {
+					this.setState({saving: false});
+					if ( response.error ) {
+						//Server validation errors
+						console.log(
+							'err',
+							response.error
+						);
+						this.setState({error: response.error});
+					} else {
+						this.setState({error: false});
+						this.setState({success: true});
+					}
+					setTimeout(
+						() => {
+							this.setState({
+								              error:   false,
+								              success: false
+							              });
+						},
+						3000
+					);
+				}
+			)
+			.catch(
+				(error) => {
+					console.log(
+						'caugght err',
+						error
+					);
+
+				});
+
+		this.setState({user: data});
 	};
 	componentDidMount = () => {
 		console.log('componentDidMount');
@@ -67,7 +133,10 @@ class Admin extends React.Component {
 			this.setState({loading: true});
 			let userId = '';
 			if ( undefined !== nextProps.match.params.user_id ) {
-				userId = parseInt(nextProps.match.params.user_id);
+				userId = parseInt(
+					nextProps.match.params.user_id,
+					10
+				);
 			}
 			this.fetchUserData(userId);
 		}
@@ -80,23 +149,15 @@ class Admin extends React.Component {
 			(
 				this.props.match.params.user_id ?
 					<AdminEditTable user={this.state.user}
+					                error={this.state.error}
+					                success={this.state.success}
+					                saving={this.state.saving}
 					                saveEditInAdmin={this.saveEdit}/>
 					:
 					<AdminListTable users={this.state.users}/>
 			)
 
 	);
-
-	constructor (props) {
-		super(props);
-		this.state = {
-			loading: true,
-			users:   [],
-			user:    {}
-		};
-		this.saveEdit = this.saveEdit.bind(this);
-		this.fetchUserData = this.fetchUserData.bind(this);
-	};
 }
 
 

@@ -15,7 +15,7 @@ class AdminListTable extends React.Component {
 			<TableHeader>
 				<TableRow>
 					<TableHeaderCell>
-						Admin Interface
+						Customer Name
 					</TableHeaderCell>
 					<TableHeaderCell>
 						Edit User Account
@@ -35,8 +35,7 @@ class AdminListTable extends React.Component {
 
 							<TableRow key={key}>
 								<TableCell>
-									{array.user.name}
-									{array.user.id}
+									<h3>{array.user.name}</h3>
 								</TableCell>
 								<TableCell>
 									<Link className="edit"

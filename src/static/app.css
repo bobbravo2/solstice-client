@@ -3,6 +3,7 @@
 	/*Reset the ui padding to enable larger touch targets for UX */
 	padding: 0;
 }
+
 #root .landing-header .menu a {
 	padding: 2.2rem 1.8rem;
 	width: 100%;
@@ -18,6 +19,7 @@
 	margin: 100px auto 0;
 	display: block;
 }
+
 .edit {
 	padding: 3px;
 	border: 1px solid #dddddd;
@@ -26,9 +28,11 @@
 	border-radius: 2px;
 	transition: background-color .2s ease;
 }
+
 .edit:hover {
 	background-color: #dddddd;
 }
+
 .edit:active {
 	background-color: lightslategray;
 }
@@ -43,6 +47,6 @@
 	display: none !important;
 }
 
-.JsonEditor > div > div:nth-child(2) > div.ArrayItem > div:nth-child(1) > div > div:nth-child(9) > div.StringItem > .delete-button {
+.JsonEditor .delete-button {
 	display: none !important;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container, Grid, Image} from 'semantic-ui-react';
 import LogoWithTagline from '../images/logo-with-tag.png';
+
 export default () => (
 	<Container>
 		<Grid columns={1} padded>
@@ -12,7 +13,14 @@ export default () => (
 						<source type="video/mp4"
 						        src="http://ny.solstice.us/docs/media/NTO_H.mp4"/>
 					</video>
-					<Image fluid src={LogoWithTagline} style={{position: "absolute", top: "10%", left: 0, right: 0, margin: "0 auto", maxWidth: '520px'}}/>
+					<Image fluid src={LogoWithTagline} style={{
+						position: "absolute",
+						top:      "10%",
+						left:     0,
+						right:    0,
+						margin:   "0 auto",
+						maxWidth: '520px'
+					}}/>
 				</Grid.Row>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Nullam non

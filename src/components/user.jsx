@@ -1,22 +1,21 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import echarts from 'echarts';
 import SkeltonLoader from '../static/SkeltonLoader';
 
-
-echarts.registerTheme(
-	'solstice',
-	{
-		backgroundColor: '#ddd'
-	}
-);
-
 class User extends React.Component {
+	constructor (props) {
+		super(props);
+		this.state = {
+			loading: true,
+			users:   []
+		};
+	}
+
 	getChartOptions = () => {
 		// console.log('data', this.state.users[0].records);
 		return {
 			title:   {
-				text:    "My Energy Savings",
+				text:    this.state.users.user.name + "'s Savings",
 				subtext: "An interactive visualization of your energy savings"
 			},
 			tooltip: {
@@ -92,7 +91,7 @@ class User extends React.Component {
 					},
 					tooltip:   {
 						// eslint-disable-next-line
-						formatter: '${@}',
+						formatter: '${@}'
 					},
 					itemStyle: {
 						color: '#333333'
@@ -157,14 +156,6 @@ class User extends React.Component {
 		};
 	};
 
-	constructor (props) {
-		super(props);
-		this.state = {
-			loading: true,
-			users:   []
-		};
-	}
-
 	componentDidMount () {
 		let userId = '';
 		if ( this.props.match.params.user_id ) {
@@ -205,7 +196,7 @@ class User extends React.Component {
 				<div>
 					<ReactEcharts option={this.getChartOptions()}
 					              style={{height: '400px'}}/>
-					<h1>User {this.props.match.params.user_id}</h1>
+
 				</div>
 		);
 	}

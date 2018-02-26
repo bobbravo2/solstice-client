@@ -18,7 +18,10 @@
 ### Future Features
 
 - [ ]  Add `Aria` accessibility to interactive [charts](https://ecomfe.github.io/echarts-doc/public/en/option.html#aria.description). Test with VoiceOver.
-- [ ] Refactor client side state to use `Redux` + `React-Router` 
+- [ ] Refactor client side state to use `Redux` + `React-Router`
+- [ ] Add more bespoke record editor to the admin interface
+- [ ] Use JWTs for validation between client & server
+- [ ] Use Client Side Validation for record editor 
 
 ## Create React App
 
