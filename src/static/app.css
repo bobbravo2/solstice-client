@@ -50,3 +50,17 @@
 .JsonEditor .delete-button {
 	display: none !important;
 }
+
+.ui.button.ambassador {
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+	background: #feec35;
+	background: -moz-linear-gradient(top, #feec35 10%, #f37c30 41%, #ec423d 71%);
+	background: -webkit-linear-gradient(top, #feec35 10%, #f37c30 41%, #ec423d 71%);
+	background: linear-gradient(to bottom, #feec35 10%, #f37c30 41%, #ec423d 71%);
+}
+
+.row .column .card {
+	/*Visually align vertically with the charts*/
+	margin-top: 60px;
+}
