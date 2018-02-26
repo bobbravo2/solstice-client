@@ -1,0 +1,13 @@
+{
+  "root": "build",
+  "clean_urls": false,
+  "routes": {
+	"/static/*": "/static/",
+	"/**": "index.html"
+  },
+  "proxies": {
+	"/api/": {
+	  "origin": "https://solstice-server.herokuapp.com/"
+	}
+  }
+}
