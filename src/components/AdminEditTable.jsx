@@ -36,14 +36,19 @@ class AdminEditTable extends React.Component {
 				"utility-kwh": 0,
 				"zip-code":    ''
 			},
-			createTouched: false
+			createTouched: false,
+			saving:        false,
+			success:       false,
+			error:         false
 		};
 	};
+
 	handleCreateRecordChange = (event) => {
 		let name  = event.target.name,
 		    value = event.target.value;
 		this.setState({
 			              "create": {
+				              //Need to merge as React doesn't do a recursive merge
 				              ...this.state.create,
 				              [name]: value
 			              }
@@ -51,6 +56,7 @@ class AdminEditTable extends React.Component {
 		this.setState({createTouched: true});
 	};
 	submitNewRecord = (data) => {
+		this.setState({saving: true});
 		console.log(
 			'data',
 			this.state.create
@@ -68,7 +74,18 @@ class AdminEditTable extends React.Component {
 				mode:        'cors',
 				redirect:    'error'
 			}
-		);
+		)
+			.then(
+				response => response.json())
+			.then((json) => {
+				this.setState({saving: false});
+				if ( json.error ) {
+					this.setState({error: json.error});
+				} else {
+					this.setState({success: true});
+					this.setState({error: false});
+				}
+			});
 
 	};
 	render = () => {
@@ -93,6 +110,17 @@ class AdminEditTable extends React.Component {
 					<TableRow>
 						<TableCell verticalAlign={"top"}>
 							<h3>Add new record</h3>
+							{this.state.error ? <Message
+								error>{this.state.error}</Message> : null}
+							{this.state.success ?
+								<Message success>Saved</Message> : null}
+							{this.state.saving ? <Message icon info>
+								<Icon name='circle notched' loading/>
+								<Message.Content>
+									<Message.Header>Creating...</Message.Header>
+									Keeping your user data safe and sound.
+								</Message.Content>
+							</Message> : null}
 							<Form onSubmit={this.submitNewRecord}>
 								<FormGroup>
 									<FormInput name={"year"} label={"Year"}
@@ -126,18 +154,11 @@ class AdminEditTable extends React.Component {
 									           onChange={this.handleCreateRecordChange}>
 										<Label>$</Label>
 										<input/>
+										<Label size={'small'} pointing={'left'}>Must
+											be negative</Label>
 									</FormInput>
 								</FormGroup>
 								<FormGroup>
-									<FormInput name={"solar-kwh"}
-									           labelPosition='right'
-									           label={"Solar kWh Usage"}
-									           value={this.state.create['solar-kwh']}
-									           onChange={this.handleCreateRecordChange}>
-										<Label icon={"sun"} basic/>
-										<input/>
-										<Label>kWh</Label>
-									</FormInput>
 									<FormInput name={"utility-kwh"}
 									           label={"Utility kWh Usage"}
 									           labelPosition='right'
@@ -147,9 +168,19 @@ class AdminEditTable extends React.Component {
 										<input/>
 										<Label>kWh</Label>
 									</FormInput>
+									<FormInput name={"solar-kwh"}
+									           labelPosition='right'
+									           label={"Solar kWh Usage"}
+									           value={this.state.create['solar-kwh']}
+									           onChange={this.handleCreateRecordChange}>
+										<Label icon={"sun"} basic/>
+										<input/>
+										<Label>kWh</Label>
+									</FormInput>
 								</FormGroup>
 
-								<FormInput control={Button}>Create</FormInput>
+								{this.state.createTouched ? <FormInput><Button
+									primary>Create</Button></FormInput> : null}
 							</Form>
 						</TableCell>
 						<TableCell>

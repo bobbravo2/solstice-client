@@ -127,9 +127,9 @@ class Admin extends React.Component {
 			'nextProps',
 			nextProps
 		);
-		//Hack for react router to force re-rendering of the component. FIXME with Redux with more time ;-)
+		//Hack for react router to force re-rendering of the component. FIXME use Redux with more time ;-)
 		if ( this.props.match.params.user_id !== nextProps.match.params.user_id ) {
-			console.log('STALE');
+			console.log('StSTALE');
 			this.setState({loading: true});
 			let userId = '';
 			if ( undefined !== nextProps.match.params.user_id ) {
