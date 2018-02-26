@@ -44,9 +44,12 @@ class Admin extends React.Component {
 					);
 					if ( '' === user_id ) {
 						//Multiple records
+						//Actual production response would be cleaned up for performance,
+						// the below call getting more data for one user
 						this.setState({users: users});
 					} else {
 						//Just one user, keep this so react re-renders the dom on route change
+						//Also so we can only fetch one record as this scales
 						this.setState({user: users});
 					}
 					this.setState({loading: false});
@@ -76,7 +79,8 @@ class Admin extends React.Component {
 			:
 			(
 				this.props.match.params.user_id ?
-					<AdminEditTable user={this.state.user}/>
+					<AdminEditTable user={this.state.user}
+					                saveEditInAdmin={this.saveEdit}/>
 					:
 					<AdminListTable users={this.state.users}/>
 			)
@@ -87,10 +91,11 @@ class Admin extends React.Component {
 		super(props);
 		this.state = {
 			loading: true,
-			users:   []
+			users:   [],
+			user:    {}
 		};
 		this.saveEdit = this.saveEdit.bind(this);
-		this.fetchUserData = this.fetchUserData.bind(this);//Stupid JS.
+		this.fetchUserData = this.fetchUserData.bind(this);
 	};
 }
 

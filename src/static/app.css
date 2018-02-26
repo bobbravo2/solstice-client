@@ -32,3 +32,17 @@
 .edit:active {
 	background-color: lightslategray;
 }
+
+.JsonEditor .ObjectRow:nth-child(2) .ArrayItem {
+	flex-flow: column;
+	display: flex !important;
+}
+
+.JsonEditor .add-button {
+	/*Better UX by hand-crafting a create component, edit is fine. */
+	display: none !important;
+}
+
+.JsonEditor > div > div:nth-child(2) > div.ArrayItem > div:nth-child(1) > div > div:nth-child(9) > div.StringItem > .delete-button {
+	display: none !important;
+}
