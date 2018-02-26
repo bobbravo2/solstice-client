@@ -39,11 +39,15 @@ class AdminEditTable extends React.Component {
 			createTouched: false
 		};
 	};
-
 	handleCreateRecordChange = (event) => {
 		let name  = event.target.name,
 		    value = event.target.value;
-		this.setState({"create": {[name]: value}});
+		this.setState({
+			              "create": {
+				              ...this.state.create,
+				              [name]: value
+			              }
+		              });
 		this.setState({createTouched: true});
 	};
 	submitNewRecord = (data) => {
@@ -103,7 +107,6 @@ class AdminEditTable extends React.Component {
 									<FormInput name={"zip-code"}
 									           label={"Zip Code"}
 									           width={5}
-
 									           value={this.state.create['zip-code']}
 									           onChange={this.handleCreateRecordChange}/>
 								</FormGroup>
@@ -150,6 +153,7 @@ class AdminEditTable extends React.Component {
 							</Form>
 						</TableCell>
 						<TableCell>
+							<h3>Edit Current Records</h3>
 							<Message success>
 								Edit the user account below by clicking on any
 								values that you want to change. Press [ENTER] to
