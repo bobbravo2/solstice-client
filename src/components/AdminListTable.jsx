@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {
-	Button,
 	Table,
 	TableBody,
 	TableCell,
@@ -10,13 +9,19 @@ import {
 	TableRow
 } from 'semantic-ui-react';
 
-class AdminEditTable extends React.Component {
+class AdminListTable extends React.Component {
 	render = () => (
 		<Table sortable={true}>
 			<TableHeader>
 				<TableRow>
 					<TableHeaderCell>
 						Admin Interface
+					</TableHeaderCell>
+					<TableHeaderCell>
+						Edit User Account
+					</TableHeaderCell>
+					<TableHeaderCell>
+						Log-in as user
 					</TableHeaderCell>
 				</TableRow>
 			</TableHeader>
@@ -32,8 +37,14 @@ class AdminEditTable extends React.Component {
 								<TableCell>
 									{array.user.name}
 									{array.user.id}
-										<Link className="edit"
-											to={`/admin/${array.user.id}`}>Edit</Link>
+								</TableCell>
+								<TableCell>
+									<Link className="edit"
+									      to={`/admin/${array.user.id}`}>Edit</Link>
+								</TableCell>
+								<TableCell>
+									<Link className="edit"
+									      to={`/user/${array.user.id}`}>Log-in</Link>
 								</TableCell>
 							</TableRow>
 						)
@@ -42,4 +53,5 @@ class AdminEditTable extends React.Component {
 		</Table>
 	);
 }
-export default AdminEditTable
+
+export default AdminListTable;
