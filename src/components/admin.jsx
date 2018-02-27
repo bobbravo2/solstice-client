@@ -25,7 +25,7 @@ class Admin extends React.Component {
 		);
 		this.setState({saving: true});
 		fetch(
-			'/api/admin/',
+			`/api/admin/${this.props.match.params.user_id}`,
 			{
 				body:        JSON.stringify(data),
 				cache:       'no-cache',
