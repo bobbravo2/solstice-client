@@ -410,11 +410,11 @@ class User extends React.Component {
 						</GridColumn>
 					</GridRow>
 					<GridRow>
-						<GridColumn width={12}>
+						<GridColumn computer={12} mobile={16}>
 							<ReactEcharts option={this.getSavingsChartOptions()}
 							              style={{height: '400px'}}/>
 						</GridColumn>
-						<GridColumn width={4}>
+						<GridColumn computer={4} mobile={16}>
 							<Card>
 								<CardContent>
 									<Card.Header>
@@ -443,7 +443,7 @@ class User extends React.Component {
 						</GridColumn>
 					</GridRow>
 					<GridRow>
-						<GridColumn width={4}>
+						<GridColumn computer={4} mobile={16}>
 							<Card>
 								<CardContent>
 									<Card.Header>
@@ -460,7 +460,7 @@ class User extends React.Component {
 								</CardContent>
 							</Card>
 						</GridColumn>
-						<GridColumn width={12}>
+						<GridColumn computer={12} mobile={16}>
 							<ReactEcharts
 								option={this.getUsageHistoryChartOptions()}
 								style={{height: '400px'}}/>
