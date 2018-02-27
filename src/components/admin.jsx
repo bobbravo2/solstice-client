@@ -25,7 +25,7 @@ class Admin extends React.Component {
 		);
 		this.setState({saving: true});
 		fetch(
-			'/api/',
+			'/api/admin/',
 			{
 				body:        JSON.stringify(data),
 				cache:       'no-cache',
