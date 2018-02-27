@@ -11,7 +11,7 @@ export default () => (
 					<video style={{maxWidth: "100%"}} loop="loop" preload="auto"
 					       autoPlay={true} playsInline={true}>
 						<source type="video/mp4"
-						        src="http://ny.solstice.us/docs/media/NTO_H.mp4"/>
+						        src="https://d2ffutrenqvap3.cloudfront.net/items/1T0u2Q0L3Z1z3V2b1E1s/NTO_H.mp4"/>
 					</video>
 					<Image fluid src={LogoWithTagline} style={{
 						position: "absolute",
