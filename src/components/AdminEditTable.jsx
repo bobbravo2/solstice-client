@@ -62,7 +62,7 @@ class AdminEditTable extends React.Component {
 			this.state.create
 		);
 		fetch(
-			`/admin/${this.props.user.user.id}/create`,
+			`/api/admin/${this.props.user.user.id}/create`,
 			{
 				body:        JSON.stringify(this.state.create),
 				cache:       'no-cache',

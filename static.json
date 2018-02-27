@@ -6,7 +6,7 @@
 	"/**": "index.html"
   },
   "proxies": {
-	":3001": {
+	"/api/": {
 	  "origin": "https://solstice-server.herokuapp.com/"
 	}
   }

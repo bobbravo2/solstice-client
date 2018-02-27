@@ -369,7 +369,7 @@ class User extends React.Component {
 			//Extract the user id from react router when we have one
 			userId = this.props.match.params.user_id;
 		}
-		fetch(`/user/${userId}`)
+		fetch(`/api/user/${userId}`)
 			.catch((err) => {
 				console.error(
 					'Unhandled Fetch Exception: ',

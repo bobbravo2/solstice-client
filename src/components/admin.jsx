@@ -25,7 +25,7 @@ class Admin extends React.Component {
 		);
 		this.setState({saving: true});
 		fetch(
-			'',
+			'/api/',
 			{
 				body:        JSON.stringify(data),
 				cache:       'no-cache',
@@ -93,7 +93,7 @@ class Admin extends React.Component {
 			'fetchUserData',
 			user_id
 		);
-		fetch(`/user/${user_id}`)
+		fetch(`/api/user/${user_id}`)
 			.catch((err) => {
 				console.error(
 					'Unhandled Fetch Exception: ',
